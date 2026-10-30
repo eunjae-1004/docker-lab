@@ -8,7 +8,10 @@ Windows PC에서 n8n, PostgreSQL, pgAdmin을 실행하는 설치 패키지입니
 1. Docker Desktop을 설치합니다: https://www.docker.com/products/docker-desktop/
 2. 설치 과정에서 WSL 2 사용 안내가 나오면 완료하고, 필요하면 PC를 재시작합니다.
 3. Docker Desktop을 실행하고 Linux containers 모드가 준비될 때까지 기다립니다.
-4. 배포 ZIP을 다운로드한 뒤 **압축을 풀어** 로컬 폴더에 저장합니다.
+4. 배포 ZIP을 다운로드한 뒤 **압축을 풉니다**. 폴더를 `D:\`에 둘 필요는 없습니다. 바탕 화면, `C:\apps\docker-lab`, 다른 드라이브처럼 쓰기 가능한 위치면 됩니다.
+
+스크립트는 자신이 놓인 폴더에서 `compose.yaml`과 `.env`를 찾습니다. 실행 전에 특정 드라이브로 이동하지 않아도 됩니다.
+Docker 스택 이름은 폴더 경로와 상관없이 `docker-lab`입니다. 같은 PC에서 폴더를 옮겨도 기존 데이터 볼륨을 그대로 사용합니다.
 
 Docker Desktop 사용 조건은 설치 전 해당 조직에서 확인하세요.
 
@@ -34,7 +37,7 @@ pgAdmin에서 PostgreSQL 서버를 추가할 때 호스트는 `postgres`, 포트
 
 ## 4. 문제가 생기면
 
-설치 폴더에서 PowerShell 또는 터미널을 열어 확인합니다.
+설치 폴더로 이동한 뒤 PowerShell 또는 터미널을 열어 확인합니다. 폴더 위치는 `D:\`가 아니어도 됩니다.
 
 ```powershell
 docker compose ps

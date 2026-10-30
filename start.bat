@@ -1,6 +1,10 @@
 @echo off
-cd /d "%~dp0"
-docker compose up -d
+setlocal
+set "ROOT=%~dp0"
+if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+if "%ROOT:~-1%"==":" set "ROOT=%ROOT%\"
+cd /d "%ROOT%"
+docker compose --project-directory "%ROOT%" -f "%ROOT%\compose.yaml" up -d
 if errorlevel 1 (
   echo Operation failed. Check the message above.
   pause
